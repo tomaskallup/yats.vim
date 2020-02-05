@@ -22,7 +22,6 @@ syntax region typescriptTypeCast matchgroup=typescriptTypeBrackets
   \ start=/< \@!/ end=/>/
   \ contains=@typescriptType
   \ nextgroup=@typescriptExpression
-  \ contained skipwhite oneline
 
 runtime syntax/common.vim
 
