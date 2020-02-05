@@ -2156,6 +2156,7 @@ syntax match   typescriptFuncName              contained /\K\k*/
   \ skipwhite
 
 " destructuring ({ a: ee }) =>
+" syntax match   typescriptArrowFuncDef          contained /({\_[^}]*}\(:\_[^)]\)\?)\s*=>/
 syntax match   typescriptArrowFuncDef          contained /(\(\s*\({\_[^}]*}\|\k\+\)\(:\_[^)]\)\?,\?\)\+)\s*=>/
   \ contains=typescriptArrowFuncArg,typescriptArrowFunc
   \ nextgroup=@typescriptExpression,typescriptBlock
@@ -2175,6 +2176,7 @@ syntax match   typescriptArrowFuncDef          contained /\K\k*\s*=>/
   \ skipwhite skipempty
 
 " TODO: optimize this pattern
+" syntax region   typescriptArrowFuncDef          contained start=/(\_[^)]*):/ end=/=>/
 syntax region   typescriptArrowFuncDef          contained start=/(\_[^(^)]*):/ end=/=>/
   \ contains=typescriptArrowFuncArg,typescriptArrowFunc,typescriptTypeAnnotation
   \ nextgroup=@typescriptExpression,typescriptBlock
