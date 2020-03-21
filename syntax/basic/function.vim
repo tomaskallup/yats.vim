@@ -19,8 +19,8 @@ syntax match   typescriptFuncName              contained /\K\k*/
   \ skipwhite
 
 " destructuring ({ a: ee }) =>
-syntax match   typescriptArrowFuncDef          contained /(\n*\s*[^< \t]\([^)]*\n*\)*)\n*\s*=>/
-  \ contains=typescriptArrowFuncArg,typescriptArrowFunc,typescriptTypeAnnotation
+syntax match   typescriptArrowFuncDef          contained /(\(\s*\({\_[^}]*}\|\k\+\)\(:\_[^)]\)\?,\?\)\+)\s*=>/
+  \ contains=typescriptArrowFuncArg,typescriptArrowFunc
   \ nextgroup=@typescriptExpression,typescriptBlock
   \ skipwhite skipempty
 
